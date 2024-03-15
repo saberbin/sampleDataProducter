@@ -1,8 +1,8 @@
 from abc import ABC, abstractmethod
 from typing import Any, Union, List, Dict
 from pathlib import Path
+from time import sleep
 from common.utils import generate_random_str
-
 from common.kafka_producer import kafkaProducer
 
 
@@ -101,6 +101,8 @@ class SysOutput(Output):
         return None
 
     def output_data(self, message: Any, **kwargs) -> None:
+        if kwargs.get("delay"):
+            sleep(kwargs.get("delay"))
         print(f">>>{message}")
 
 
