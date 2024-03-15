@@ -9,7 +9,7 @@ from common.constant import Constant
 import importlib
 
 
-class SimpleKafkaProducter(object):
+class sampleDataProducter(object):
     def __init__(self, name: str, args: Any) -> None:
         self.workpath = Constant.workpath  # 获取项目工作目录
         self.config = self.__parser_all_config(name=name, args=args)  # 解析配置参数
@@ -103,6 +103,6 @@ class SimpleKafkaProducter(object):
 
 
 if __name__ == '__main__':
-    sk_producter = SimpleKafkaProducter(name=__name__, args=sys.argv)
+    sk_producter = sampleDataProducter(name=__name__, args=sys.argv)
     sk_producter.run()
 
